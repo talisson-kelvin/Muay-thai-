@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A ARTE MARCIAL - Preparação</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <div class="logo-accent"></div>
+            <h1>A ARTE MARCIAL</h1>
+        </div>
+        <button class="menu-toggle" aria-label="Abrir menu" id="menuBtn">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="navMenu">
+            <ul>
+                <li><button class="nav-link" data-target="home-screen">Início</button></li>
+                <li><button class="nav-link" data-target="pre-quiz-screen">Quiz</button></li>
+                <li><button class="nav-link" data-target="learn-screen">Aprender</button></li>
+                <li><button class="nav-link" data-target="tips-screen">Macetes</button></li>
+                <li><button class="nav-link" data-target="errors-screen">Meus Erros</button></li>
+                <li><button class="nav-link" id="navSimuladoBtn" data-target="pre-quiz-screen">Simulado</button></li>
+                <li><button class="nav-link" data-target="progress-screen">Progresso</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="overlay" id="menuOverlay"></div>
+
+    <main id="app-content">
+        <!-- TELA INICIAL -->
+        <section id="home-screen" class="screen active">
+            <header class="screen-header">
+                <p class="subtitle">PREPARAÇÃO PARA GRADUAÇÃO</p>
+                <h2>MUAY THAI</h2>
+            </header>
+
+            <article class="card hero-card">
+                <div class="hero-content">
+                    <span class="badge-hero">Módulo Principal</span>
+                    <h3>QUIZ DE GRADUAÇÃO</h3>
+                    <p>Teste os seus conhecimentos, aprenda com os seus erros e prepare-se para a sua graduação de forma definitiva.</p>
+                </div>
+                <button class="btn btn-primary btn-large" id="startQuizHeroBtn">COMEÇAR QUIZ <span class="arrow">&rarr;</span></button>
+            </article>
+
+            <div class="grid-cards">
+                <button class="card btn-card" data-target="learn-screen">
+                    <div class="card-accent gold"></div>
+                    <h4>APRENDER</h4>
+                    <p>Estude os conceitos</p>
+                    <span class="card-arrow">&rarr;</span>
+                </button>
+                <button class="card btn-card" data-target="pre-quiz-screen">
+                    <div class="card-accent gold"></div>
+                    <h4>REVISAR</h4>
+                    <p>Treine por categorias</p>
+                    <span class="card-arrow">&rarr;</span>
+                </button>
+                <button class="card btn-card" data-target="errors-screen">
+                    <div class="card-accent red"></div>
+                    <h4>MEUS ERROS</h4>
+                    <p>Refaça o que errou</p>
+                    <span class="card-arrow">&rarr;</span>
+                </button>
+                <button class="card btn-card" data-target="tips-screen">
+                    <div class="card-accent gold"></div>
+                    <h4>MACETES</h4>
+                    <p>Dicas de memorização</p>
+                    <span class="card-arrow">&rarr;</span>
+                </button>
+                <button class="card btn-card" id="startSimuladoCardBtn">
+                    <div class="card-accent red"></div>
+                    <h4>SIMULADO</h4>
+                    <p>Questões reais</p>
+                    <span class="card-arrow">&rarr;</span>
+                </button>
+                <button class="card btn-card" data-target="progress-screen">
+                    <div class="card-accent gold"></div>
+                    <h4>PROGRESSO</h4>
+                    <p>Veja o seu desempenho</p>
+                    <span class="card-arrow">&rarr;</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- CONFIGURAÇÃO DO QUIZ -->
+        <section id="pre-quiz-screen" class="screen hidden">
+            <header class="screen-header row-between">
+                <div>
+                    <p class="subtitle">CONFIGURAÇÃO</p>
+                    <h2>PERSONALIZAR TREINO</h2>
+                </div>
+                <button class="btn-icon nav-link" data-target="home-screen">&larr; Voltar</button>
+            </header>
+            <div class="card">
+                <div class="form-group">
+                    <label for="quizDifficulty">Nível de Dificuldade:</label>
+                    <div class="select-wrapper">
+                        <select id="quizDifficulty" class="input-select">
+                            <option value="all">Misto (Todos os Níveis)</option>
+                            <option value="easy">Fácil (Iniciante)</option>
+                            <option value="medium">Médio (Intermediário)</option>
+                            <option value="hard">Difícil (Avançado)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="quizCategory">Foco de Estudo:</label>
+                    <div class="select-wrapper">
+                        <select id="quizCategory" class="input-select">
+                            <option value="all">Todas as Categorias</option>
+                            <option value="História">História e Cultura</option>
+                            <option value="Termos">Termos Tradicionais</option>
+                            <option value="Técnica">Técnica e Combate</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn btn-primary btn-large mt-20" id="startCustomQuizBtn">INICIAR SESSÃO</button>
+            </div>
+        </section>
+
+        <!-- TELA DE QUIZ -->
+        <section id="quiz-screen" class="screen hidden">
+            <header class="quiz-header">
+                <div class="quiz-stats-bar">
+                    <span id="quizCounter" class="stat-pill">01 / 10</span>
+                    <span id="quizStreak" class="stat-pill dark">SEQ: 0</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" id="quizProgressBar"></div>
+                </div>
+                <div class="quiz-metrics">
+                    <span class="metric-correct">Acertos: <strong id="quizCorrects">0</strong></span>
+                    <span class="metric-incorrect">Erros: <strong id="quizErrors">0</strong></span>
+                </div>
+            </header>
+
+            <article class="card question-card" id="questionContainer">
+                <h3 class="question-text" id="questionText">A carregar pergunta...</h3>
+                <div class="options-container" id="optionsContainer">
+                    <!-- Alternativas injetadas via JS -->
+                </div>
+            </article>
+
+            <article class="card feedback-card hidden" id="feedbackContainer">
+                <div class="feedback-header" id="feedbackHeader">
+                    <span id="feedbackResult" class="feedback-title">ACERTOU</span>
+                </div>
+                <div class="feedback-content">
+                    <div class="correct-answer-box">
+                        <span class="label">Resposta correta:</span>
+                        <p id="feedbackCorrectText"></p>
+                    </div>
+                    <div class="explanation-box">
+                        <span class="label">Porquê?</span>
+                        <p id="feedbackExplanation"></p>
+                    </div>
+                    <div class="tip-box">
+                        <span class="label gold">MACETE</span>
+                        <p id="feedbackTip"></p>
+                    </div>
+                </div>
+                <button class="btn btn-primary btn-large mt-20" id="nextQuestionBtn">PRÓXIMA PERGUNTA &rarr;</button>
+            </article>
+        </section>
+
+        <!-- RESULTADO DO QUIZ -->
+        <section id="result-screen" class="screen hidden">
+            <header class="screen-header">
+                <p class="subtitle">SESSÃO FINALIZADA</p>
+                <h2 id="resultTitle">RESULTADO</h2>
+            </header>
+            <div class="card center-content">
+                <h3 id="resultMessage" class="result-msg">Desempenho da Sessão</h3>
+                <div class="circular-progress">
+                    <svg viewBox="0 0 36 36" class="circular-chart">
+                        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        <path class="circle" id="resultCircle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        <text x="18" y="20.35" class="percentage" id="resPercent">0%</text>
+                    </svg>
+                </div>
+                
+                <div class="result-stats mt-20">
+                    <div class="stat-box">
+                        <span class="stat-num correct" id="resCorrect">0</span>
+                        <span class="stat-label">Acertos</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-num error" id="resErrors">0</span>
+                        <span class="stat-label">Erros</span>
+                    </div>
+                </div>
+                
+                <div class="action-buttons mt-20">
+                    <button class="btn btn-outline btn-large nav-link" data-target="home-screen">VOLTAR AO INÍCIO</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEMAIS TELAS -->
+        <section id="errors-screen" class="screen hidden">
+            <header class="screen-header row-between">
+                <h2>MEUS ERROS</h2>
+                <button class="btn-icon nav-link" data-target="home-screen">&larr; Voltar</button>
+            </header>
+            <div class="card"><p>Funcionalidade em desenvolvimento. Continue a treinar no Quiz!</p></div>
+        </section>
+        
+        <section id="learn-screen" class="screen hidden">
+            <header class="screen-header row-between">
+                <h2>ESTUDO TEÓRICO</h2>
+                <button class="btn-icon nav-link" data-target="home-screen">&larr; Voltar</button>
+            </header>
+            <div class="card"><p>A teoria completa será listada aqui futuramente.</p></div>
+        </section>
+
+        <section id="tips-screen" class="screen hidden">
+            <header class="screen-header row-between">
+                <h2>MACETES</h2>
+                <button class="btn-icon nav-link" data-target="home-screen">&larr; Voltar</button>
+            </header>
+            <div class="card"><p>Os macetes estão embutidos nas respostas do Quiz. Preste atenção às dicas douradas!</p></div>
+        </section>
+
+        <section id="progress-screen" class="screen hidden">
+            <header class="screen-header row-between">
+                <h2>MEU PROGRESSO</h2>
+                <button class="btn-icon nav-link" data-target="home-screen">&larr; Voltar</button>
+            </header>
+            <div class="card"><p>Módulo de estatísticas detalhadas em breve.</p></div>
+        </section>
+
+        <section class="sources-section">
+            <p>FONTES: Confederações Oficiais de Muay Thai.</p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
