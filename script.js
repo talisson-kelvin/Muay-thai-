@@ -1,60 +1,793 @@
-// BANCO DE QUESTÕES (50 Perguntas com IDs únicos)
+
+   // BANCO DE QUESTÕES COMPLETO - MUAY THAI
 const questionsData = [
-    // === NÍVEL FÁCIL ===
-    { id: 1, difficulty: "easy", category: "História", question: "Em qual país foi criado o Muay Thai?", options: ["Japão", "China", "Tailândia", "Coreia do Sul"], correct: 2, explanation: "O Muay Thai é a arte marcial e o desporto nacional da Tailândia.", tip: "Também é vulgarmente conhecido como Boxe Tailandês." },
-    { id: 2, difficulty: "easy", category: "Técnica", question: "O Muay Thai é conhecido como a Arte de quantas armas?", options: ["4 Armas", "6 Armas", "8 Armas", "10 Armas"], correct: 2, explanation: "Utiliza 2 punhos, 2 cotovelos, 2 joelhos e 2 canelas/pés.", tip: "Lembre-se dos 4 membros principais multiplicados por 2." },
-    { id: 3, difficulty: "easy", category: "Termos", question: "Quem treina Muay Thai é chamado de?", options: ["Karateca", "Nak Muay", "Judoca", "Kru"], correct: 1, explanation: "'Nak' é uma pessoa dedicada a algo, e 'Muay' significa luta.", tip: "Nak Muay = Praticante de luta." },
-    { id: 4, difficulty: "easy", category: "Termos", question: "Como se chama o cumprimento utilizado para as mulheres?", options: ["Sawasdee Krap", "Sawasdee Kha", "Wai Kru", "Nak Muay"], correct: 1, explanation: "Na Tailândia, as mulheres usam a terminação 'Kha' para saudar.", tip: "Lembre-se: 'Kha' para o feminino." },
-    { id: 5, difficulty: "easy", category: "Termos", question: "Como se chama o cumprimento utilizado para os homens?", options: ["Sawasdee Kha", "Sawasdee Krap", "Wai Kru", "Mongkol"], correct: 1, explanation: "Homens utilizam a terminação 'Krap' como sinal de respeito.", tip: "Homem = Krap." },
-    { id: 6, difficulty: "easy", category: "Técnica", question: "Quais são os golpes básicos de soco (punhos)?", options: ["Jab, Direto, Cruzado e Uppercut", "Chute e Cotovelada", "Gancho e Voadora", "Frontal e Circular"], correct: 0, explanation: "São as técnicas de boxe integradas no Muay Thai.", tip: "Iguais aos do Boxe tradicional." },
-    { id: 7, difficulty: "easy", category: "Termos", question: "Como o professor de Muay Thai é chamado?", options: ["Sensei", "Sifu", "Mestre", "Kru"], correct: 3, explanation: "'Kru' é a palavra tailandesa para professor.", tip: "Sensei é japonês. No Thai é Kru." },
-    { id: 8, difficulty: "easy", category: "História", question: "Quantos assaltos (rounds) tem uma luta tradicional profissional de Muay Thai?", options: ["3 rounds", "5 rounds", "10 rounds", "12 rounds"], correct: 1, explanation: "As lutas profissionais na Tailândia são disputadas em 5 rounds de 3 minutos.", tip: "Menos que o boxe, mas com 5 rounds intensos." },
-    { id: 9, difficulty: "easy", category: "Técnica", question: "Onde o lutador de Muay Thai deve manter as mãos na guarda básica?", options: ["Abaixo da cintura", "Na altura do peito", "Na altura das sobrancelhas/testa", "Atrás das costas"], correct: 2, explanation: "A guarda alta protege a cabeça contra socos e cotoveladas.", tip: "Mãos altas sempre!" },
-    { id: 10, difficulty: "easy", category: "Técnica", question: "Na postura (base) de luta, como fica o calcanhar da perna de trás?", options: ["Totalmente colado ao chão", "Ligeiramente levantado", "Apoiado no joelho", "Cruzado atrás da perna da frente"], correct: 1, explanation: "O calcanhar levantado dá mobilidade e rapidez para atacar ou defender.", tip: "Como uma mola pronta para saltar." },
-    { id: 11, difficulty: "easy", category: "Termos", question: "Qual a saudação usada ao entrar e sair do tatame/ringue?", options: ["Osu", "Namaste", "Sawasdee", "Wai"], correct: 2, explanation: "Sawasdee é a saudação tradicional acompanhada do gesto Wai.", tip: "A mesma usada no dia a dia tailandês." },
-    { id: 12, difficulty: "easy", category: "História", question: "O Muay Thai foca-se mais em golpes em pé ou luta no chão?", options: ["Luta no chão", "Luta agarrada apenas", "Luta em pé (Striking)", "Projeções e imobilizações"], correct: 2, explanation: "É uma arte marcial estritamente de trocação em pé (striking).", tip: "Não há imobilizações no chão." },
-    { id: 13, difficulty: "easy", category: "Técnica", question: "Como deve ser a respiração ao desferir um golpe?", options: ["Prender o ar (apneia)", "Inspirar fundo", "Expirar soltando o ar (gritar/chiar)", "Respirar apenas pelo nariz"], correct: 2, explanation: "Expirar ao golpear contrai o abdômen e aumenta a força e proteção.", tip: "O famoso 'ish' ou 'shh' no impacto." },
-    { id: 14, difficulty: "easy", category: "Técnica", question: "Qual é o principal uso do golpe 'Jab'?", options: ["Nocaute imediato", "Medir distância e preparar outros golpes", "Defender chutes", "Derrubar o oponente"], correct: 1, explanation: "O Jab é o golpe mais rápido da mão da frente, usado para distância e distração.", tip: "A mão da frente abre o caminho." },
-    { id: 15, difficulty: "easy", category: "História", question: "Qual é a vestimenta inferior padrão usada em lutas de Muay Thai?", options: ["Calça de Kimono", "Bermuda de surf", "Calção Tailandês (Thai Trunks)", "Legging"], correct: 2, explanation: "Os calções curtos e largos permitem liberdade total para as pernas.", tip: "Costumam ser brilhantes e coloridos." },
-    { id: 16, difficulty: "easy", category: "Termos", question: "O que significa a cor da faixa (Kruang) no braço no Ocidente?", options: ["A idade do aluno", "O nível/graduação do praticante", "O número de lutas que venceu", "O peso do atleta"], correct: 1, explanation: "No ocidente, o Kruang funciona como o sistema de faixas do Karaté/Judo.", tip: "Indica o seu Khan (nível)." },
+    // === FUNDAMENTOS TÉCNICOS ===
+    {
+        id: 1,
+        difficulty: "easy",
+        category: "Fundamentos",
+        question: "O que é o jab no Muay Thai?",
+        options: [
+            "Um chute circular com a perna de trás",
+            "Um golpe reto desferido com a mão da frente",
+            "Uma cotovelada descendente",
+            "Uma joelhada voadora"
+        ],
+        correct: 1,
+        explanation: "O jab é o golpe reto desferido com a mão que está mais próxima do adversário (mão da frente).",
+        tip: "É a principal ferramenta para manter a distância e preparar combinações."
+    },
+    {
+        id: 2,
+        difficulty: "easy",
+        category: "Fundamentos",
+        question: "Qual mão executa o jab na base tradicional?",
+        options: [
+            "A mão de trás",
+            "Ambas as mãos ao mesmo tempo",
+            "A mão da frente",
+            "Nenhuma das mãos"
+        ],
+        correct: 2,
+        explanation: "Na base tradicional, o jab é sempre executado com a mão da frente.",
+        tip: "Lembre-se: mão da frente = jab."
+    },
+    {
+        id: 3,
+        difficulty: "easy",
+        category: "Fundamentos",
+        question: "O que é o direto?",
+        options: [
+            "Um golpe reto com a mão de trás",
+            "Um chute frontal rápido",
+            "Uma esquiva lateral",
+            "Um bloqueio alto"
+        ],
+        correct: 0,
+        explanation: "O direto é um golpe reto forte desferido com a mão que está posicionada atrás na base.",
+        tip: "Aproveita a rotação do pé e do quadril de trás para gerar potência."
+    },
+    {
+        id: 4,
+        difficulty: "easy",
+        category: "Fundamentos",
+        question: "Qual é a diferença entre jab e direto?",
+        options: [
+            "O jab usa a mão de trás e o direto a da frente",
+            "O jab usa a mão da frente e o direto a mão de trás",
+            "Não existe diferença",
+            "O jab é feito com os pés"
+        ],
+        correct: 1,
+        explanation: "A principal diferença reside na mão utilizada: o jab usa a dianteira e o direto utiliza a traseira.",
+        tip: "O jab foca em velocidade/distância; o direto foca em potência."
+    },
+    {
+        id: 5,
+        difficulty: "medium",
+        category: "Fundamentos",
+        question: "Qual é a posição correta dos pés na base?",
+        options: [
+            "Pés colados um ao outro",
+            "Pés alinhados na mesma linha lateral",
+            "Pés afastados na largura dos ombros com um pé ligeiramente à frente",
+            "Um pé virado completamente para trás"
+        ],
+        correct: 2,
+        explanation: "Os pés devem manter uma base sólida, afastados na largura dos ombros, permitindo mobilidade e equilíbrio.",
+        tip: "Evite alinhar os pés lateralmente para não perder o equilíbrio facilmente."
+    },
+    {
+        id: 6,
+        difficulty: "easy",
+        category: "Fundamentos",
+        question: "Para um destro na base tradicional, qual pé fica à frente?",
+        options: [
+            "O pé direito",
+            "O pé esquerdo",
+            "Ambos lado a lado",
+            "Qualquer um aleatoriamente"
+        ],
+        correct: 1,
+        explanation: "Para um destro na base ortodoxa/tradicional, o pé esquerdo fica posicionado à frente.",
+        tip: "A mão e o pé mais ágeis ficam na frente."
+    },
+    {
+        id: 7,
+        difficulty: "medium",
+        category: "Fundamentos",
+        question: "Para um canhoto, qual pé geralmente fica à frente?",
+        options: [
+            "O pé esquerdo",
+            "O pé direito",
+            "Nenhum deles",
+            "Apenas os calcanhares"
+        ],
+        correct: 1,
+        explanation: "Canhotos (base southpaw) colocam o pé direito à frente e a mão direita na dianteira.",
+        tip: "Inverte a lógica da base de um destro."
+    },
+    {
+        id: 8,
+        difficulty: "easy",
+        category: "Fundamentos",
+        question: "Por que devemos manter o queixo protegido durante a guarda?",
+        options: [
+            "Para evitar nocautes e desequilíbrios causados por impactos diretos",
+            "Para conseguir respirar melhor",
+            "Para enxergar o oponente de costas",
+            "Para manter a coluna reta"
+        ],
+        correct: 0,
+        explanation: "O queixo é uma zona altamente vulnerável a nocautes; mantê-lo colado ao peito/ombro protege contra impactos.",
+        tip: "Queixo baixo salva combates."
+    },
+    {
+        id: 9,
+        difficulty: "easy",
+        category: "Fundamentos",
+        question: "Qual é a função da mão que não está golpeando?",
+        options: [
+            "Ficar abaixada para descansar",
+            "Manter a guarda alta e proteger o rosto",
+            "Apontar para o adversário",
+            "Segurar a corda do ringue"
+        ],
+        correct: 1,
+        explanation: "Enquanto um membro ataca, o outro deve garantir a protecção defensiva do corpo e rosto.",
+        tip: "Regra de ouro: atacou de um lado, protegeu do outro."
+    },
+    {
+        id: 10,
+        difficulty: "medium",
+        category: "Fundamentos",
+        question: "Por que é importante manter o equilíbrio durante os golpes?",
+        options: [
+            "Para conseguir dançar no ringue",
+            "Para evitar quedas, retornar rapidamente à guarda e desferir novos golpes com potência",
+            "Para gastar mais energia",
+            "Para agradar ao público"
+        ],
+        correct: 1,
+        explanation: "O equilíbrio garante suporte estrutural para aplicar força e permite reagir imediatamente a contra-ataques.",
+        tip: "Sem equilíbrio, perde-se força e defesa."
+    },
+    {
+        id: 11,
+        difficulty: "easy",
+        category: "Fundamentos",
+        question: "O que é a guarda no Muay Thai?",
+        options: [
+            "A posição de combate defensiva e ofensiva padrão",
+            "O intervalo entre os rounds",
+            "O uniforme oficial de treino",
+            "A saudação inicial"
+        ],
+        correct: 0,
+        explanation: "A guarda é a postura corporal estruturada para proteger o corpo enquanto permite atacar.",
+        tip: "Cotovelos fechados, mãos junto ao rosto e base firme."
+    },
+    {
+        id: 12,
+        difficulty: "medium",
+        category: "Fundamentos",
+        question: "O que significa manter uma postura correta?",
+        options: [
+            "Estar com os braços abertos",
+            "Alinhamento corporal que favorece a biomecânica, proteção e eficiência dos movimentos",
+            "Ficar imóvel o máximo de tempo possível",
+            "Inclinar o tronco totalmente para a frente"
+        ],
+        correct: 1,
+        explanation: "A postura correta otimiza a energia, protege pontos vitais e agiliza a execução técnica.",
+        tip: "Postura eficiente = menor gasto de energia e maior segurança."
+    },
+    {
+        id: 13,
+        difficulty: "easy",
+        category: "Fundamentos",
+        question: "O que é um cruzado?",
+        options: [
+            "Um golpe circular de curta/média distância com rotação de tronco",
+            "Um chute baixo na coxa",
+            "Uma defesa de braço cruzado",
+            "Um passo lateral rápido"
+        ],
+        correct: 0,
+        explanation: "O cruzado é um golpe de punho desferido com o braço semi-flexionado em trajetória circular.",
+        tip: "O punho cruza em direção ao alvo com forte rotação do calcanhar e quadril."
+    },
+    {
+        id: 14,
+        difficulty: "easy",
+        category: "Fundamentos",
+        question: "O que é um uppercut?",
+        options: [
+            "Um soco ascendente de baixo para cima",
+            "Um chute frontal alto",
+            "Uma cotovelada lateral",
+            "Uma queda de anca"
+        ],
+        correct: 0,
+        explanation: "O uppercut é um soco desferido de baixo para cima, visando o queixo ou o tronco do oponente.",
+        tip: "Excelente para quebrar guardas fechadas pela frente."
+    },
+    {
+        id: 15,
+        difficulty: "easy",
+        category: "Fundamentos",
+        question: "O que é um chute frontal (teep)?",
+        options: [
+            "Um chute de empurrão usando a sola do pé",
+            "Um chute giratório de costas",
+            "Um golpe de calcanhar descendente",
+            "Uma joelhada voadora"
+        ],
+        correct: 0,
+        explanation: "O teep funciona como um 'jab de perna', servindo para afastar, controlar a distância e desequilibrar o oponente.",
+        tip: "Usa-se a sola do pé ou os artelhos para empurrar."
+    },
+    {
+        id: 16,
+        difficulty: "medium",
+        category: "Fundamentos",
+        question: "Qual é a função principal do teep?",
+        options: [
+            "Nocautear com força máxima sempre",
+            "Controlar a distância, impedir a aproximação e desequilibrar o adversário",
+            "Golpear as costas do oponente",
+            "Substituir o uso das mãos"
+        ],
+        correct: 1,
+        explanation: "O teep é uma ferramenta tática defensiva e ofensiva para gerir o espaço no combate.",
+        tip: "Mantém o adversário à distância segura."
+    },
+    {
+        id: 17,
+        difficulty: "easy",
+        category: "Fundamentos",
+        question: "O que é um chute circular?",
+        options: [
+            "Um chute em trajetória semicircular de baixo para cima ou lateral",
+            "Um chute em linha reta para a frente",
+            "Um giro completo de 360 graus",
+            "Um chute dado com os calcanhares"
+        ],
+        correct: 0,
+        explanation: "O chute circular (Roundhouse kick) é o ataque clássico do Muay Thai desferido em arco.",
+        tip: "Gera enorme potência através da rotação do quadril."
+    },
+    {
+        id: 18,
+        difficulty: "medium",
+        category: "Fundamentos",
+        question: "Qual parte da perna é tradicionalmente utilizada para aplicar o chute circular?",
+        options: [
+            "A ponta dos dedos do pé",
+            "A canela (tíbia)",
+            "O joelho exclusivamente",
+            "A parte de trás do calcanhar"
+        ],
+        correct: 1,
+        explanation: "No Muay Thai tradicional, o impacto do chute circular é feito com a tíbia (canela) e não com o pé.",
+        tip: "A canela é um osso duro e resistente ideal para o impacto."
+    },
+    {
+        id: 19,
+        difficulty: "easy",
+        category: "Fundamentos",
+        question: "O que é uma joelhada?",
+        options: [
+            "Um golpe desferido utilizando a articulação do joelho",
+            "Um bloqueio de perna",
+            "Uma queda aplicada com o joelho no chão",
+            "Um passo de deslocamento"
+        ],
+        correct: 0,
+        explanation: "A joelhada é uma das armas corporais mais devastadoras de curta distância no clinch e na média.",
+        tip: "Pode ser reta, circular ou voadora."
+    },
+    {
+        id: 20,
+        difficulty: "easy",
+        category: "Fundamentos",
+        question: "O que é uma cotovelada?",
+        options: [
+            "Um golpe desferido com a ponta do osso do cotovelo",
+            "Uma defesa de braço esticado",
+            "Um abraço técnico no clinch",
+            "Uma flexão de braço no solo"
+        ],
+        correct: 0,
+        explanation: "A cotovelada utiliza a ponta rígida do cotovelo para desferir golpes cortantes ou de impacto em curta distância.",
+        tip: "Altamente eficiente para combates corpo a corpo."
+    },
+    {
+        id: 21,
+        difficulty: "medium",
+        category: "Fundamentos",
+        question: "Quais partes do corpo formam as 'oito armas'?",
+        options: [
+            "Dois punhos, dois cotovelos, dois joelhos e duas canelas/pés",
+            "Apenas os braços e as pernas",
+            "Cabeça, tronco, membros superiores e inferiores",
+            "Mãos, pés, cabeça e ancas"
+        ],
+        correct: 0,
+        explanation: "As oito armas referem-se ao uso combinado de punhos, cotovelos, joelhos e canelas/pés.",
+        tip: "Permite atacar em várias distâncias diferentes."
+    },
+    {
+        id: 22,
+        difficulty: "easy",
+        category: "Fundamentos",
+        question: "Por que o Muay Thai é chamado de 'Arte das Oito Armas'?",
+        options: [
+            "Porque utiliza oito membros principais do corpo como pontos de impacto",
+            "Porque tem oito regras fundamentais",
+            "Porque foi criado por oito mestres",
+            "Porque são necessários oito anos para graduar"
+        ],
+        correct: 0,
+        explanation: "O termo reflete a versatilidade de usar punhos, cotovelos, joelhos e canelas como armas de combate.",
+        tip: "Diferencia-se de artes marciais que usam apenas punhos ou apenas pés."
+    },
+    {
+        id: 23,
+        difficulty: "medium",
+        category: "Fundamentos",
+        question: "O que é uma esquiva?",
+        options: [
+            "Um movimento corporal para desviar a trajetória de um ataque adversário",
+            "Um golpe de encontro",
+            "Um tipo de queda lateral",
+            "A interrupção do combate pelo árbitro"
+        ],
+        correct: 0,
+        explanation: "A esquiva permite evitar o golpe sem necessariamente bloquear com os braços, abrindo espaço para contra-atacar.",
+        tip: "Economiza esforço físico e protege contra impactos diretos."
+    },
+    {
+        id: 24,
+        difficulty: "easy",
+        category: "Fundamentos",
+        question: "O que é um bloqueio?",
+        options: [
+            "A interrupção física de um ataque com o uso dos braços, pernas ou tronco",
+            "Uma regra proibida no ringue",
+            "Uma técnica de submissão no solo",
+            "A saída voluntária do combate"
+        ],
+        correct: 0,
+        explanation: "O bloqueio absorve ou desvia o impacto de um golpe aplicado pelo oponente.",
+        tip: "Bloquear com a canela evita lesões nos chutes circulares."
+    },
+    {
+        id: 25,
+        difficulty: "medium",
+        category: "Fundamentos",
+        question: "Por que não devemos cruzar os pés desnecessariamente durante o deslocamento?",
+        options: [
+            "Porque causa perda de equilíbrio e vulnerabilidade a quedas",
+            "Porque é contra a etiqueta cultural tailandesa",
+            "Porque gasta mais bateria mental",
+            "Não há problema em cruzar os pés"
+        ],
+        correct: 0,
+        explanation: "Cruzar os pés estreita a base de sustentação, tornando o praticante extremamente instável a qualquer empurrão.",
+        tip: "Passos deslizantes e controlados mantêm a estabilidade."
+    },
 
-    // === NÍVEL MÉDIO ===
-    { id: 17, difficulty: "medium", category: "História", question: "Como se chama o ritual de homenagem aos treinadores antes da luta?", options: ["Wai Kru", "Sawasdee", "Kruang", "Mongkol"], correct: 0, explanation: "'Wai' (reverenciar) e 'Kru' (professor).", tip: "Reverência ao Mestre." },
-    { id: 18, difficulty: "medium", category: "História", question: "O que é o Ram Muay?", options: ["A luta em si", "A dança realizada antes dos combates", "Uma técnica de chute", "O amuleto de cabeça"], correct: 1, explanation: "É a dança que se segue ao Wai Kru para demonstrar respeito.", tip: "'Ram' significa dança." },
-    { id: 19, difficulty: "medium", category: "Termos", question: "Como se chama a corda de graduação usada no braço?", options: ["Kruang (Prajied)", "Mongkol", "Faixa", "Kimono"], correct: 0, explanation: "O Kruang indica a graduação do Nak Muay no ocidente.", tip: "Braço = Kruang/Prajied." },
-    { id: 20, difficulty: "medium", category: "Termos", question: "Qual é o nome do amuleto sagrado usado na cabeça?", options: ["Kruang", "Mongkol", "Ram Muay", "Khan"], correct: 1, explanation: "Amuleto abençoado usado na cabeça, retirado pelo mestre.", tip: "Cabeça = Mongkol." },
-    { id: 21, difficulty: "medium", category: "História", question: "O que significa a palavra 'Muay'?", options: ["Paz", "Arte", "Luta / Combate", "Defesa"], correct: 2, explanation: "Deriva do sânscrito 'Mavya' (juntar ou lutar).", tip: "Muay Thai = Luta Tailandesa." },
-    { id: 22, difficulty: "medium", category: "Técnica", question: "Qual a perna que deve ficar atrás na base de luta?", options: ["A perna esquerda", "A perna direita", "A perna forte (dominante)", "Paralelas"], correct: 2, explanation: "A perna mais forte fica atrás para gerar potência.", tip: "Destro = Direita atrás." },
-    { id: 23, difficulty: "medium", category: "História", question: "Em média, até qual graduação (Khan) o sistema ocidental vai?", options: ["10º Khan", "15º Khan", "5º Khan", "20º Khan"], correct: 1, explanation: "Vai até ao 15º Khan (Grão Mestre/Ouro).", tip: "Termina no Ouro (15)." },
-    { id: 24, difficulty: "medium", category: "Técnica", question: "Qual a área de contato principal ao desferir um chute circular?", options: ["Peito do pé", "Canela (tíbia)", "Joelho", "Calcanhar"], correct: 1, explanation: "O impacto é feito com a canela para causar mais dano.", tip: "A canela é o 'taco de beisebol' da perna." },
-    { id: 25, difficulty: "medium", category: "Técnica", question: "Como é feita a defesa básica de um chute circular na costela?", options: ["Cruzando os braços", "Agarrando a perna", "Levantando a perna para bloquear com a canela", "Virando as costas"], correct: 2, explanation: "Bloqueia-se osso com osso levantando a perna num ângulo de 45 graus (check).", tip: "Sempre canela contra canela." },
-    { id: 26, difficulty: "medium", category: "Termos", question: "O que significa 'Nak Muay Ying'?", options: ["Mestre de Muay Thai", "Lutadora Feminina", "Árbitro de combate", "Técnica de joelho"], correct: 1, explanation: "Ying é o termo usado para mulheres praticantes/lutadoras.", tip: "Ying = Feminino." },
-    { id: 27, difficulty: "medium", category: "Técnica", question: "Como se chama a esquiva para trás, tirando o tronco do alcance de um chute alto?", options: ["Clinch", "Pendular", "Lean Back (Esquiva de tronco)", "Check"], correct: 2, explanation: "É comum inclinar o tronco para trás (Lean back) para fazer o chute passar em falso.", tip: "Inclinar para trás." },
-    { id: 28, difficulty: "medium", category: "Termos", question: "Como se chama o saco de pancadas tradicional?", options: ["Saco búlgaro", "Heavy Bag", "Makiwara", "Pera de velocidade"], correct: 1, explanation: "O Heavy Bag (saco pesado e longo) é o equipamento padrão para condicionar as canelas.", tip: "Equipamento pesado." },
-    { id: 29, difficulty: "medium", category: "História", question: "Quais são os dois estádios mais lendários do Muay Thai em Bangkok?", options: ["Maracanã e Wembley", "Lumpinee e Rajadamnern", "MGM e Madison Square", "Tóquio Dome e Korakuen"], correct: 1, explanation: "Lumpinee e Rajadamnern são os 'templos' sagrados do esporte.", tip: "Nomes tailandeses icónicos." },
-    { id: 30, difficulty: "medium", category: "Técnica", question: "É permitido golpear o adversário na parte de trás da cabeça/nuca?", options: ["Sim, sempre", "Apenas no clinch", "Não, é falta", "Apenas com cotovelos"], correct: 2, explanation: "Golpes na nuca são ilegais e perigosos no Muay Thai.", tip: "Regra básica de segurança." },
-    { id: 31, difficulty: "medium", category: "Termos", question: "Como se chama o protetor de dentes?", options: ["Capacete", "Bandagem", "Bocal (Mouthguard)", "Coquilha"], correct: 2, explanation: "O protetor bucal é essencial para absorver impactos e não cortar a boca.", tip: "Fica na boca." },
-    { id: 32, difficulty: "medium", category: "Técnica", question: "O que é 'caminhar/andar em compasso' no ringue?", options: ["Pular com os dois pés", "Arrastar a perna de trás sem cruzar as pernas", "Correr em círculos", "Andar para trás o tempo todo"], correct: 1, explanation: "A base nunca deve ser cruzada para não perder o equilíbrio.", tip: "Um pé empurra o outro." },
-    { id: 33, difficulty: "medium", category: "Termos", question: "O que é o 'Camp'?", options: ["Golpe giratório", "Acampamento/Ginásio onde os lutadores treinam e vivem", "O calção da luta", "O round extra"], correct: 1, explanation: "Na Tailândia, o Camp (Kai Muay) é onde o lutador treina, dorme e se alimenta.", tip: "A casa do lutador." },
+    // === BASE E MOVIMENTAÇÃO ===
+    {
+        id: 26,
+        difficulty: "medium",
+        category: "Base e Movimentação",
+        question: "Por que a base é importante no Muay Thai?",
+        options: [
+            "Garante estabilidade, velocidade de reação e potência para golpes e defesas",
+            "Serve apenas para fins estéticos",
+            "Permite descansar durante a luta",
+            "Evita que o oponente veja o seu rosto"
+        ],
+        correct: 0,
+        explanation: "Uma base sólida é a fundação de toda a biomecânica de ataque e defesa no desporto.",
+        tip: "Tudo começa numa boa base."
+    },
+    {
+        id: 27,
+        difficulty: "medium",
+        category: "Base e Movimentação",
+        question: "Como deve estar a distribuição do peso na base?",
+        options: [
+            "Totalmente no calcanhar da frente",
+            "Dividido de forma equilibrada, com leve propensão para a ponta dos pés para facilitar a mobilidade",
+            "100% no pé de trás",
+            "Apoiado apenas numa perna o tempo todo"
+        ],
+        correct: 1,
+        explanation: "O peso distribuído de forma inteligente permite reagir rapidamente tanto para atacar quanto para defender.",
+        tip: "Evite ficar 'pesado' sobre os calcanhares."
+    },
+    {
+        id: 28,
+        difficulty: "medium",
+        category: "Base e Movimentação",
+        question: "Por que devemos manter os pés em uma posição que permita equilíbrio?",
+        options: [
+            "Para não cair ao receber um impacto ou aplicar um golpe forte",
+            "Para correr mais rápido no ringue",
+            "Para saltar mais alto",
+            "Para facilitar a contagem de pontos"
+        ],
+        correct: 0,
+        explanation: "O equilíbrio dinâmico protege contra desequilíbrios provocados pelos ataques do adversário.",
+        tip: "Pés muito juntos = perda de equilíbrio."
+    },
+    {
+        id: 29,
+        difficulty: "easy",
+        category: "Base e Movimentação",
+        question: "O que acontece com a defesa quando você abaixa demais as mãos?",
+        options: [
+            "O rosto fica totalmente desprotegido contra socos e cotoveladas",
+            "A defesa melhora consideravelmente",
+            "Ganha-se mais velocidade nos chutes",
+            "Nada se altera"
+        ],
+        correct: 0,
+        explanation: "Abaixar a guarda abre uma brecha crítica para golpes diretos e cruzados no rosto.",
+        tip: "Guarda baixa é sinónimo de perigo iminente."
+    },
+    {
+        id: 30,
+        difficulty: "easy",
+        category: "Base e Movimentação",
+        question: "Por que devemos retornar à guarda depois de executar um golpe?",
+        options: [
+            "Para não deixar aberturas para contra-ataques do oponente",
+            "Para descansar o braço imediatamente",
+            "Porque as regras exigem uma pausa",
+            "Para cumprimentar o árbitro"
+        ],
+        correct: 0,
+        explanation: "O momento exato após golpear é quando o praticante fica mais vulnerável se não retornar à postura defensiva.",
+        tip: "Bateu, voltou para a base."
+    },
+    {
+        id: 31,
+        difficulty: "medium",
+        category: "Base e Movimentação",
+        question: "O que significa avançar mantendo a base?",
+        options: [
+            "Mover-se para a frente sem perder a distância padrão entre os pés e a postura de guarda",
+            "Correr em direcção ao oponente de olhos fechados",
+            "Arrastar os dois pés pelo chão",
+            "Avançar pulando sem controle"
+        ],
+        correct: 0,
+        explanation: "Avançar mantendo a base assegura que você está sempre pronto para golpear ou defender a qualquer instante.",
+        tip: "Passo da frente puxa o de trás (na passada básica)."
+    },
+    {
+        id: 32,
+        difficulty: "medium",
+        category: "Base e Movimentação",
+        question: "O que significa recuar mantendo a base?",
+        options: [
+            "Afastar-se do oponente preservando a estrutura postural e a distância entre os pés",
+            "Dar as costas e correr",
+            "Cair sentado no chão de forma controlada",
+            "Recuar saltando para trás sem olhar"
+        ],
+        correct: 0,
+        explanation: "Recuar com base evita tropeços e mantém o controlo visual e defensivo do espaço.",
+        tip: "O pé de trás comanda o recuo."
+    },
+    {
+        id: 33,
+        difficulty: "easy",
+        category: "Base e Movimentação",
+        question: "Por que olhar para o adversário é importante durante o treino?",
+        options: [
+            "Para antecipar movimentos, identificar brechas e reagir a ataques a tempo",
+            "Para demonstrar falta de educação",
+            "Para contar os segundos do round",
+            "Não é necessário olhar se usar a intuição"
+        ],
+        correct: 0,
+        explanation: "O contato visual e a leitura corporal do oponente são fundamentais para a defesa e estratégia.",
+        tip: "Quem fecha os olhos perde a informação do golpe."
+    },
+    {
+        id: 34,
+        difficulty: "medium",
+        category: "Base e Movimentação",
+        question: "Qual é a importância do movimento de quadril nos golpes?",
+        options: [
+            "Gera a maior parte da potência e torque necessários para chutes e socos eficientes",
+            "Serve apenas para embelezar a técnica",
+            "Ajuda a manter o ritmo musical do treino",
+            "Reduz a flexibilidade das pernas"
+        ],
+        correct: 0,
+        explanation: "O quadril funciona como o motor rotacional que transmite o peso do corpo para o ponto de impacto.",
+        tip: "Potência no Muay Thai vem do quadril e da base, não apenas dos braços."
+    },
+    {
+        id: 35,
+        difficulty: "medium",
+        category: "Base e Movimentação",
+        question: "Qual é a importância da rotação do corpo em determinados golpes?",
+        options: [
+            "Amplia o alcance, maximiza a força cinética e protege as articulações",
+            "Gera tontura controlada",
+            "Dificulta a respiração para treinar o cardio",
+            "Não tem relevância prática"
+        ],
+        correct: 0,
+        explanation: "A rotação correta do tronco e dos pés canaliza a energia cinética de forma fluida para o alvo.",
+        tip: "Girar o calcanhar ao chutar ou desferir cruzados faz toda a diferença."
+    },
 
-    // === NÍVEL DIFÍCIL ===
-    { id: 34, difficulty: "hard", category: "Termos", question: "Como se diz 'Chute' em tailandês?", options: ["Sok", "Kao", "Tae", "Mat"], correct: 2, explanation: "'Tae' refere-se aos chutes.", tip: "Tae = Chute." },
-    { id: 35, difficulty: "hard", category: "Termos", question: "Como se diz 'Joelho' em tailandês?", options: ["Sok", "Kao", "Tae", "Mat"], correct: 1, explanation: "'Kao' (ou Khao) refere-se ao joelho.", tip: "Kao = Joelho." },
-    { id: 36, difficulty: "hard", category: "Termos", question: "Como se diz 'Cotovelo' em tailandês?", options: ["Sok", "Kao", "Tae", "Mat"], correct: 0, explanation: "'Sok' refere-se ao cotovelo.", tip: "Sok = Cotovelo." },
-    { id: 37, difficulty: "hard", category: "Termos", question: "Como se diz 'Soco' em tailandês?", options: ["Sok", "Kao", "Tae", "Mat"], correct: 3, explanation: "'Mat' refere-se aos golpes de punho.", tip: "Mat = Soco." },
-    { id: 38, difficulty: "hard", category: "Técnica", question: "O que é o 'Teep' no Muay Thai?", options: ["Chute circular", "Chute frontal (empurrão)", "Cotovelada giratória", "Joelhada voadora"], correct: 1, explanation: "É um empurrão com a planta do pé usado para controlar a distância.", tip: "Chute Frontal." },
-    { id: 39, difficulty: "hard", category: "História", question: "De qual arte marcial ancestral o Muay Thai se originou?", options: ["Muay Boran", "Silat", "Lethwei", "Krabi Krabong"], correct: 0, explanation: "O Muay Boran é a arte ancestral militar, focada na guerra sem luvas.", tip: "Boran significa 'antigo'." },
-    { id: 40, difficulty: "hard", category: "Técnica", question: "O que é o 'Clinch' (Plam)?", options: ["Esquiva", "Luta agarrada em pé", "Nocaute", "Bloqueio"], correct: 1, explanation: "É a técnica de controlar o pescoço e braços do oponente para aplicar joelhadas e cotoveladas.", tip: "Luta agarrada." },
-    { id: 41, difficulty: "hard", category: "História", question: "Quem é o herói histórico do Muay Thai que derrotou 10 birmaneses?", options: ["Buakaw", "Nai Khanom Tom", "Saenchai", "Rama V"], correct: 1, explanation: "Nai Khanom Tom lutou pela sua liberdade no dia 17 de março (Dia do Muay Thai).", tip: "O 'Pai' do Muay Thai." },
-    { id: 42, difficulty: "hard", category: "Termos", question: "O que são as 'Kard Chuek'?", options: ["Corda de graduação", "Cordas de cânhamo enroladas nas mãos e antebraços", "Tatuagens", "Luvas de 10oz"], correct: 1, explanation: "Antes das luvas ocidentais, os lutadores usavam cordas nas mãos.", tip: "Chuek = Corda." },
-    { id: 43, difficulty: "hard", category: "Técnica", question: "O que significa 'Kao Loi'?", options: ["Soco giratório", "Chute baixo", "Joelhada voadora", "Bloqueio frontal"], correct: 2, explanation: "'Kao' é joelho e 'Loi' significa voar.", tip: "Loi = Voador." },
-    { id: 44, difficulty: "hard", category: "Termos", question: "Como é chamado o 'Mestre dos Mestres' (título acima de Kru)?", options: ["Sensei", "Sifu", "Ajarn", "Grand Master"], correct: 2, explanation: "Ajarn é o título dado a mestres altamente experientes.", tip: "Ajarn (ou Arjan)." },
-    { id: 45, difficulty: "hard", category: "Termos", question: "Como se chama o Árbitro de ringue em tailandês?", options: ["Nak Muay", "Ajarn", "Kammakan", "Mongkol"], correct: 2, explanation: "Kammakan é a autoridade máxima dentro do ringue.", tip: "Começa com 'K' e tem 3 sílabas." },
-    { id: 46, difficulty: "hard", category: "Técnica", question: "O que é 'Sok Glab'?", options: ["Cotovelada descendente", "Cotovelada giratória", "Soco no estômago", "Chute na coxa"], correct: 1, explanation: "'Sok' (cotovelo) e 'Glab' (voltar/girar).", tip: "O golpe preferido para surpresas giratórias." },
-    { id: 47, difficulty: "hard", category: "História", question: "Qual antigo rei da Tailândia é conhecido por ter popularizado e modernizado o Muay Thai na sua 'Era de Ouro' inicial?", options: ["Rei Naresuan", "Rei Chulalongkorn (Rama V)", "Nai Khanom Tom", "Bhumibol Adulyadej"], correct: 1, explanation: "O Rei Rama V modernizou a prática e transformou-a em desporto nacional organizado.", tip: "Rama V." },
-    { id: 48, difficulty: "hard", category: "Técnica", question: "O que é 'Tae Kha'?", options: ["Chute circular alto na cabeça", "Chute circular baixo nas coxas (Low Kick)", "Joelhada dupla", "Bloqueio duplo"], correct: 1, explanation: "É o famoso Low Kick, visando a coxa ou panturrilha do oponente.", tip: "Kha significa perna/coxa." },
-    { id: 49, difficulty: "hard", category: "Termos", question: "O que são as 'Sak Yant'?", options: ["Calções sagrados", "Tatuagens tradicionais tailandesas de proteção", "Os monges budistas", "Os tambores tocados na luta"], correct: 1, explanation: "Muitos lutadores fazem estas tatuagens geométricas para trazer sorte, proteção e força.", tip: "Tinta na pele." },
-    { id: 50, difficulty: "hard", category: "Técnica", question: "Qual a diferença do 'Teep' no Muay Thai para um Front Kick do Karaté?", options: ["É feito com o calcanhar", "Serve como uma arma de contenção/empurrão e não apenas como chicote", "É sempre mirado na cabeça", "Não existe diferença"], correct: 1, explanation: "O Teep tem um movimento de pisão e penetração com o quadril para afastar o adversário.", tip: "Funciona como um soco direto usando a perna." }
+    // === GRADUAÇÃO ===
+    {
+        id: 36,
+        difficulty: "easy",
+        category: "Graduação",
+        question: "Qual é a primeira graduação do sistema utilizado pela sua academia?",
+        options: [
+            "A primeira faixa/Kruang inicial definida pelo syllabus da academia",
+            "A faixa preta avançada",
+            "O grau máximo de mestre",
+            "Não existe primeira graduação"
+        ],
+        correct: 0,
+        explanation: "O sistema de graduação inicia-se no nível básico correspondente à primeira faixa ou prajied estabelecido pela escola.",
+        tip: "Consulte o regulamento interno da sua equipa."
+    },
+    {
+        id: 37,
+        difficulty: "easy",
+        category: "Graduação",
+        question: "Qual é a cor da primeira graduação na sua academia?",
+        options: [
+            "A cor oficial inicial adotada pela confederação ou mestre responsável",
+            "Sempre preto universalmente",
+            "Transparente",
+            "Vermelho brilhante"
+        ],
+        correct: 0,
+        explanation: "As cores iniciais variam conforme a linhagem e federação de Muay Thai adotada pela academia.",
+        tip: "Verifique o padrão da sua bandeira/equipa."
+    },
+    {
+        id: 38,
+        difficulty: "medium",
+        category: "Graduação",
+        question: "Qual é a sequência das graduações utilizadas pela sua academia?",
+        options: [
+            "A progressão de cores e níveis estabelecida no plano de ensino da academia",
+            "Uma ordem aleatória escolhida a cada mês",
+            "Do nível mais alto para o mais baixo",
+            "Não há sequência lógica"
+        ],
+        correct: 0,
+        explanation: "Cada organização possui uma ordem padronizada de prajieds/faixas para certificar a evolução técnica e teórica.",
+        tip: "Siga o cronograma de exames da sua escola."
+    },
+    {
+        id: 39,
+        difficulty: "easy",
+        category: "Graduação",
+        question: "O que uma graduação representa para o aluno?",
+        options: [
+            "Reconhecimento de esforço, evolução técnica, disciplina e maturidade no desporto",
+            "Apenas um enfeite para usar no braço",
+            "Direito de faltar aos treinos",
+            "O fim obrigatório dos estudos marciais"
+        ],
+        correct: 0,
+        explanation: "A graduação simboliza a bagagem de conhecimento e dedicação acumulada pelo praticante.",
+        tip: "Representa responsabilidade e respeito contínuo."
+    },
+    {
+        id: 40,
+        difficulty: "medium",
+        category: "Graduação",
+        question: "A cor e a quantidade de graduações são iguais em todas as academias e confederações?",
+        options: [
+            "Não, cada confederação ou linhagem possui o seu próprio sistema regulamentar",
+            "Sim, são estritamente padronizadas a nível mundial",
+            "Sim, todas usam exatamente as mesmas 5 cores",
+            "Não existem regras em nenhuma academia"
+        ],
+        correct: 0,
+        explanation: "Como o Muay Thai possui diferentes linhagens e associações, os sistemas de graduação variam bastante.",
+        tip: "Importante: não existe uma sequência universal única de cores."
+    },
+    {
+        id: 41,
+        difficulty: "medium",
+        category: "Graduação",
+        question: "Quem avalia o aluno durante uma graduação?",
+        options: [
+            "O professor responsável (Kru/Ajarn) ou uma banca avaliadora qualificada",
+            "Apenas os alunos iniciantes",
+            "Qualquer pessoa na rua",
+            "Um sistema automatizado online"
+        ],
+        correct: 0,
+        explanation: "O exame de graduação é conduzido por mestres e professores com autoridade técnica para certificar o nível.",
+        tip: "A avaliação mede rigor técnico, físico e teórico."
+    },
+    {
+        id: 42,
+        difficulty: "medium",
+        category: "Graduação",
+        question: "Quais aspectos podem ser avaliados em uma graduação?",
+        options: [
+            "Técnica, postura, condicionamento, disciplina, conhecimento teórico e comportamento",
+            "Apenas a força bruta no saco de pancadas",
+            "A quantidade de equipamentos comprados",
+            "Apenas a velocidade de corrida"
+        ],
+        correct: 0,
+        explanation: "A avaliação é holística, abrangendo tanto a execução prática dos movimentos quanto os valores morais.",
+        tip: "O respeito e a disciplina contam tanto quanto a técnica."
+    },
+    {
+        id: 43,
+        difficulty: "easy",
+        category: "Graduação",
+        question: "Por que disciplina e comportamento podem ser importantes durante a graduação?",
+        options: [
+            "Porque o Muay Thai cultiva valores de respeito mútuo, honra e autocontrole",
+            "Para manter o ambiente silencioso o dia todo",
+            "Não têm qualquer importância",
+            "Apenas para cumprir burocracia"
+        ],
+        correct: 0,
+        explanation: "A filosofia marcial preza pela conduta exemplar do praticante dentro e fora do tatame.",
+        tip: "Um bom artista marcial destaca-se pela sua postura ética."
+    },
+    {
+        id: 44,
+        difficulty: "medium",
+        category: "Graduação",
+        question: "Além da técnica, por que o conhecimento teórico pode ser cobrado?",
+        options: [
+            "Para garantir que o aluno compreende a origem, a cultura e os conceitos fundamentais do desporto",
+            "Para tornar o exame mais difícil sem motivo",
+            "Porque substitui o treino físico",
+            "Apenas por formalidade escolar"
+        ],
+        correct: 0,
+        explanation: "A teoria assegura que o praticante conhece a história, os nomes dos golpes e a cultura do Muay Thai.",
+        tip: "Conhecer a teoria enriquece a prática."
+    },
+    {
+        id: 45,
+        difficulty: "medium",
+        category: "Graduação",
+        question: "O que significa estar preparado para uma graduação?",
+        options: [
+            "Dominar os requisitos técnicos, físicos e teóricos exigidos para o seu nível atual",
+            "Ter comprado a nova faixa antecipadamente",
+            "Apenas ter completado a idade mínima",
+            "Faltar menos aos treinos na semana do teste"
+        ],
+        correct: 0,
+        explanation: "A preparação envolve dedicação contínua e assimilação correta dos conteúdos do programa.",
+        tip: "Aprovação é fruto de constância nos treinos."
+    },
+
+    // === EQUIPAMENTOS ===
+    {
+        id: 46,
+        difficulty: "easy",
+        category: "Equipamentos",
+        question: "Para que servem as bandagens?",
+        options: [
+            "Para proteger os ossos e articulações das mãos e punhos contra lesões",
+            "Para enfeitar os braços com cores bonitas",
+            "Para limpar o suor do rosto",
+            "Para dar mais força aos socos"
+        ],
+        correct: 0,
+        explanation: "As bandagens imobilizam e dão suporte estrutural aos pequenos ossos da mão e punho.",
+        tip: "Item indispensável de segurança antes de colocar as luvas."
+    },
+    {
+        id: 47,
+        difficulty: "easy",
+        category: "Equipamentos",
+        question: "Para que servem as luvas?",
+        options: [
+            "Para amortecer o impacto e proteger as mãos e o rosto dos parceiros de treino",
+            "Para conseguir segurar melhor os oponentes",
+            "Para aquecer as mãos no inverno",
+            "Para desferir golpes mais cortantes"
+        ],
+        correct: 0,
+        explanation: "As luvas de boxe protegem as mãos do golpeador e suavizam o impacto no rosto de quem recebe.",
+        tip: "Essenciais para sparring e manoplas."
+    },
+    {
+        id: 48,
+        difficulty: "easy",
+        category: "Equipamentos",
+        question: "Para que serve o protetor bucal?",
+        options: [
+            "Para proteger os dentes, mandíbula e prevenir cortes nos lábios e língua",
+            "Para ajudar a respirar com mais oxigénio",
+            "Para evitar falar durante o combate",
+            "Para mastigar chiclete no treino"
+        ],
+        correct: 0,
+        explanation: "O protetor bucal absorve e dissipa impactos recebidos na mandíbula, prevenindo lesões dentárias graves.",
+        tip: "Nunca treine sparring sem protetor bucal."
+    },
+    {
+        id: 49,
+        difficulty: "easy",
+        category: "Equipamentos",
+        question: "Para que servem as caneleiras durante o treinamento?",
+        options: [
+            "Para proteger a tíbia e o peito do pé contra impactos fortes durante os bloqueios e sparrings",
+            "Para correr mais rápido no aquecimento",
+            "Para aumentar o peso das pernas",
+            "Para fins puramente estéticos"
+        ],
+        correct: 0,
+        explanation: "As caneleiras evitam fissuras ósseas e contusões musculares severas em treinos de choque.",
+        tip: "Protege tanto quem chuta quanto quem bloqueia."
+    },
+    {
+        id: 50,
+        difficulty: "medium",
+        category: "Equipamentos",
+        question: "O que é o Mongkhon?",
+        options: [
+            "Um cordão sagrado tradicional colocado na cabeça antes da luta em sinal de respeito e proteção",
+            "Um tipo de calção de combate",
+            "Uma luva especial de competição",
+            "O troféu entregue ao vencedor"
+        ],
+        correct: 0,
+        explanation: "O Mongkhon é abençoado e usado durante o ritual de entrada no ringue (Wai Kru Ram Muay).",
+        tip: "Símbolo tradicional da cultura tailandesa e respeito ao mestre."
+    },
+    {
+        id: 51,
+        difficulty: "medium",
+        category: "Equipamentos",
+        question: "O que é o Prajied?",
+        options: [
+            "Um cordão amarrado no braço usado como amuleto de proteção e símbolo de graduação",
+            "Uma faixa usada na cintura",
+            "Um protetor de virilha",
+            "Um instrumento musical tradicional"
+        ],
+        correct: 0,
+        explanation: "O Prajied é colocado no braço do lutador, muitas vezes carregando significado espiritual ou de escola.",
+        tip: "Acompanha o atleta nos rituais e combates."
+    },
+    {
+        id: 52,
+        difficulty: "easy",
+        category: "Equipamentos",
+        question: "Por que devemos cuidar dos equipamentos de treino?",
+        options: [
+            "Para garantir a durabilidade, higiene, evitar proliferação de bactérias e manter a segurança",
+            "Apenas para mantê-los arrumados na gaveta",
+            "Porque o professor obriga sem razão",
+            "Não é necessário limpar após o uso"
+        ],
+        correct: 0,
+        explanation: "Equipamentos limpos e secos evitam odores desagradáveis, fungos e garantem proteção adequada.",
+        tip: "Higienize luvas e caneleiras regularmente."
+    }
 ];
 
 // VARIÁVEIS DE ESTADO
